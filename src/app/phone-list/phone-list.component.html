@@ -35,8 +35,8 @@
         </a>
       </td>
       <td>{{ phone.title }} </td>
-      <td>{{ phone.cost }}</td>
-      <td>{{ phone.in_stock }}</td>
+      <td>{{ phone.cost | currency }}</td>
+      <td align="right">{{ phone.in_stock }}</td>
     </tr>
   </tbody>
 </table>
