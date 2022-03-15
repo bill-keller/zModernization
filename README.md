@@ -16,5 +16,5 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Backend API Server
 
-To start the API server, connect to the WSC vpm, then cd into the backend dir and run `npm start`
+To start the API server, connect to the WSC vpn, then cd into the backend dir and run `npm init` and then `npm start`
 
