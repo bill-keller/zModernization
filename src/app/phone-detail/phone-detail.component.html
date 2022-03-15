@@ -23,24 +23,33 @@
   </div>
   <div class="twelve wide stretched column">
     <div class="ui raised segment" *ngIf="subsystem === 'cics'">
+      <b>Inventory</b>
       <p>Cost: {{ phone.cost | currency}}</p>
       <p>In Stock: {{ phone.in_stock }}</p>
       <p>On Order: {{ phone.on_order }}</p>
     </div>
-    <div class="ui segment" *ngIf="subsystem === 'dvm'">
+    <div class="ui raised segment" *ngIf="subsystem === 'dvm'">
+      <b>Warehouse</b>
       <p>City: {{ phone.city }}</p>
       <p>State/Province: {{ phone.state }}</p>
       <p>Country: {{ phone.country }}</p>
       <p>Postal code: {{ phone.zipcode }}</p>
     </div>
-    <div class="ui segment" *ngIf="subsystem === 'db2'">
+    <div class="ui raised segment" *ngIf="subsystem === 'db2'">
+      <b>Dimensions</b>
       <p>Width: {{ phone.DWIDTH }} mm</p>
       <p>Height: {{ phone.DHEIGHT }} mm</p>
       <p>Depth: {{ phone.DDEPTH }} mm</p>
       <p>Weight: {{ phone.DWEIGHT }} grams</p>
     </div>
-    <div class="ui segment" *ngIf="subsystem === 'mongo'">
-      mongo data: {{ phone.content }}
+    <div class="ui raised segment" *ngIf="subsystem === 'mongo'">
+      <b>Storage and Memory</b>
+      <p>RAM: {{ phone.RAM }}</p>
+      <p>Internal Storage: {{ phone.internalStorage }}</p>
+      <br>
+      <b>Display</b>
+      <p>Screen size: {{ phone.screenSize }}</p>
+      <p>Resolution: {{ phone.screenResolution }}</p>
     </div>
   </div>
 </div>

@@ -4,6 +4,10 @@ export interface Phone {
   title: string;
   content: string;
   imagePath: string;
+  RAM: string;
+  internalStorage: string;
+  screenResolution: string;
+  screenSize: string;
   cost: string;
   in_stock: string;
   on_order: number;
