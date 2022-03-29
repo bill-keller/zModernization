@@ -5,6 +5,7 @@ const Phone = require("../models/phone");
 
 const router = express.Router();
 
+//  http requests to /api/phones/:id gets routed here
 router.get("/:id", (req, res, next) => {
 
   function getCics() {
@@ -35,10 +36,12 @@ router.get("/:id", (req, res, next) => {
   })
 })
 
+//  http requests to /api/phones gets routed here
 router.get("", (req, res, next) => {
 
   function getCics() {
-    return axios.get('http://192.168.48.127:19890/catalog/items?startItemID=0010');
+    // CICS call to inquireCatalog API
+    return axios.get('http://192.168.48.127:19890/catalog/items');
   }
   function getMongo(){
     return Phone.find().lean().exec();
