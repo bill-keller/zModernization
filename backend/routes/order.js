@@ -6,8 +6,8 @@ const router = express.Router();
 //  http requests to /api/order gets routed here
 router.post("", (req, res, next) => {
 
-  try {
-    let order= {
+  function orderFromCics() {
+    let order = {
       cics_order_req: {
         placeOrder: {
           itemID: req.body.itemID,
@@ -15,13 +15,15 @@ router.post("", (req, res, next) => {
         }
       }
     }
-    const response = await axios.post("http://192.168.48.127:19890/catalog/order", order);
-    res.status(200).json(response.data.cics_order_resp);
-
-  } catch (error) {
-        console.log("error:" + error);
+    return axios.post("http://192.168.48.127:19890/catalog/order", order);
   }
-});
 
+  Promise.resolve(orderFromCics())
+  .then(results => {
+    res.status(200).json(results.data.cics_order_resp);
+  }).catch(errors => {
+    console.log("error:" + errors);
+  })
+});
 
 module.exports = router;
