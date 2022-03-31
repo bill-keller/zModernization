@@ -31,5 +31,18 @@ export class PhonesService {
       )
   }
 
+  orderPhone(itemID: string, qty: string) {
+    let orderData = {
+      itemID: itemID,
+      orderQuantity: qty
+    }
+    console.log("ps1")
+    return this.http
+    .post<{ returnCode: string, responseMessage: string}> (
+      "http://localhost:3000/api/order",
+      orderData
+    )
+  }
+
 
 }

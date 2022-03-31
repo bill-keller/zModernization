@@ -9,6 +9,7 @@ import { PhoneListComponent } from './phone-list/phone-list.component';
 import { DetailsHomeComponent } from './details-home/details-home.component';
 import { PhoneListHomeComponent } from './phone-list-home/phone-list-home.component';
 import { HeaderComponent } from './header/header.component';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { HeaderComponent } from './header/header.component';
     PhoneListComponent,
     DetailsHomeComponent,
     PhoneListHomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    OrderDetailComponent
   ],
   imports: [
     BrowserModule,

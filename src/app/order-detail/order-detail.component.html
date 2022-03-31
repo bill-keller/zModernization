@@ -1,0 +1,7 @@
+<button (click)="onButtonClick()" class="button is-link is-fullwidth">
+Order
+</button>
+<div class="box">
+<label>Quantity to order</label>
+<input #qtyEvent class="input" (input)="onQuantityEntered(qtyEvent.value)" />
+</div>
