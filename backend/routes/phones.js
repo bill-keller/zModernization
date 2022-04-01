@@ -52,7 +52,17 @@ router.get("", (req, res, next) => {
       const cicsItems = results[0].data.cics_cat_resp.inquire_request.cat_item;
       const respMongo = results[1];
 
-      const mergedPhones = cicsItems.map((item, i) => Object.assign({}, item, respMongo[i]));
+
+      //
+      // need to rewrite merge !!!!!!!!!!
+      //
+
+      //const mergedPhones = cicsItems.map((item, i) => Object.assign({}, item, respMongo[i]));
+
+      let mergedPhones = cicsItems.map(cicsPhone => {
+        let matchedMongo = respMongo.find(el => el.itemID === cicsPhone.itemID.toString())
+        return { ...cicsPhone, ...matchedMongo}
+      })
 
       res.status(200).json({
         message: "Phones fetched successfully!",
