@@ -30,6 +30,10 @@ export class OrderDetailComponent implements OnInit {
     this.phonesService.orderPhone(this.phone.itemID, this.quantity).subscribe((response) => {
       console.log(response);
     })
+    window.alert('Placed order for '+this.quantity+' '+this.phone.title);
+    let updated_in_stock = parseInt(this.phone.in_stock) - parseInt(this.quantity);
+    this.phone.in_stock = updated_in_stock.toString();
+
   }
 
 }

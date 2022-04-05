@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from "rxjs/operators";
+import { Subject } from 'rxjs';
 
 import { Phone } from './phone.model';
 
@@ -8,6 +9,8 @@ import { Phone } from './phone.model';
   providedIn: 'root'
 })
 export class PhonesService {
+
+  subjectNotifier: Subject<Phone> = new Subject<Phone>();
 
   constructor(private http: HttpClient) { }
 
@@ -36,7 +39,6 @@ export class PhonesService {
       itemID: itemID,
       orderQuantity: qty
     }
-    console.log("ps1")
     return this.http
     .post<{ returnCode: string, responseMessage: string}> (
       "http://localhost:3000/api/order",
