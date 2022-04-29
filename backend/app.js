@@ -1,4 +1,5 @@
 
+require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
@@ -9,7 +10,9 @@ const orderRoute = require("./routes/order");
 
 const app = express();
 
-mongoose.connect('mongodb+srv://bill:public55@cluster0.zcvy6.mongodb.net/item_catalog?retryWrites=true&w=majority')
+// mongoose.connect('mongodb+srv://bill:public55@cluster0.zcvy6.mongodb.net/item_catalog?retryWrites=true&w=majority')
+// mongoose.connect('mongodb://mongodb:27017/item_catalog')
+mongoose.connect(process.env.MONGODB_CONNSTRING)
   .then(() => {
     console.log('connected to mongoDB');
   })
