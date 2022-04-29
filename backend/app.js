@@ -1,5 +1,5 @@
 
-require('dotenv').config();
+require('dotenv').config();    // read env vars from .env file
 const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
